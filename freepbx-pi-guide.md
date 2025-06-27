@@ -1,6 +1,15 @@
 # How to build your own DIY telephone server
 
-## Introduction - why do this?
+1. [Introduction](#introduction)
+1. [Things you'll need](#things-youll-need-for-this-guide)
+1. [Build your server](#build-your-server)
+   - [Setting up email forwarding](#setting-up-email-forwarding)
+   - [Directing calls to your new server](#directing-calls-to-your-new-server)
+   - [Setting up voicemail](#setting-up-voicemail)
+1. [Security](#security)
+1. [Links](#links)
+
+## Introduction
 
 This is a quick beginner's guide to get up and running with self-hosting your own telephone server - using (mostly) free, open source, software.
 
@@ -73,6 +82,11 @@ Via the browser by navigating to the pi's IP address
 - keep saving and applying config as you go in the UI.
 - if you make changes via the CLI, restart the asterisk server `asterisk -rx "core restart now"`
 - run the software updates regularly, using the CLI commands `apt update` and `apt upgrade`
+
+### Logging
+
+For some reason for me the logging config wasn't setup on my install. I added the example `logger.conf` [given by Asterisk here](https://docs.asterisk.org/Configuration/Core-Configuration/Logging-Configuration/)
+And then you can run `tail -f /var/log/asterisk/full` in terminal to monitor them.
 
 ### Setting up email forwarding
 

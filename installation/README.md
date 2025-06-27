@@ -1,4 +1,4 @@
-#Installation
+# Installation
 
 These are instructions I originally found [here](https://www.dslreports.com/forum/r30661088-PBX-FreePBX-for-the-Raspberry-Pi) in early 2025, with some changes to make it easier to understand. It may not remain up-to-date but worked in June 2025!
 
