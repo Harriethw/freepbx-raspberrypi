@@ -8,4 +8,4 @@ This is a repo of documentation and some helpful scripts to run a FreePBX server
 
 ## Guide to FreePBX
 
-[A handy and possibly quite random guide to setting up your own phone line/IVR/voicemail etc]()
+[A handy and possibly quite random guide to setting up your own phone line/IVR/voicemail etc](freepbx-pi-guide.md)
