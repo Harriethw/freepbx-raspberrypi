@@ -301,16 +301,23 @@ I'm not an expert by any means, but here's what worked from me after looking at 
    - In the [general] section, uncomment the default time format: `dateformat=%F %T ; ISO 8601 date format`
    - Run `asterisk -rx 'logger reload'` to reload
 1. Setup a `jail` for Asterisk
-   - `nano /etc/fail2ban/jail.d/asterisk-jail.conf` and add the following:
+
+   - `nano /etc/fail2ban/jail.local` and add the following:
+
      ```
-     [asterisk]
-     enabled = true
-     logpath  = /var/log/asterisk/security
-     action = iptables-allports[name=ASTERISK, protocol=all]
-     maxretry = 5
-     bantime = 60
+      [DEFAULT]
+      ignoreip = Your_IP_address or secure subnet; separated by a space or comma
+
+      [asterisk]
+      enabled = true
+      logpath  = /var/log/asterisk/security
+      action = iptables-allports[name=ASTERISK, protocol=all]
+      maxretry = 5
+      bantime = 60
      ```
+
    - I had to run `touch /var/log/asterisk/security` before that would work to create the log file.
+
 1. Setup a `jail` for ssh
    - `nano /etc/fail2ban/jail.d/ssh-jail.conf` and add
    ```
@@ -320,7 +327,7 @@ I'm not an expert by any means, but here's what worked from me after looking at 
    maxretry = 5
    bantime = 60
    ```
-1. Run `systemctl start fail2ban` and `fail2ban-client status` to see that your two jails were setup correctly.
+1. Run `systemctl start fail2ban` and `fail2ban-client status` to see that your two jails were setup correctly. Then run `systemctl enable fail2ban`
 
 [I found this article quite helpful](https://hotkey404.com/asterisk-security-blocking-network-attacks-with-fail2ban/)
 
